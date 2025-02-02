@@ -195,42 +195,47 @@ function Navbar() {
           >
             <Link href={"/"}>
               <p className="block hover:text-green-500 transition duration-300">
-                Beranda
+                {t("home")}
               </p>
             </Link>
           </motion.li>
-          <motion.li
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-          >
-            <a
-              href="#"
-              className="block hover:text-green-500 transition duration-300"
-            >
-              Layanan
-            </a>
-          </motion.li>
-          <motion.li
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.3 }}
-          >
-            <a
-              href="#"
-              className="block hover:text-green-500 transition duration-300"
-            >
-              Portofolio{" "}
-            </a>
-          </motion.li>
+          {pathArray?.length <= 2 && (
+            <>
+              <motion.li
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
+                <span
+                  onClick={() => handleScrollTo("services")}
+                  className="block hover:text-green-500 transition duration-300"
+                >
+                  {t("service")}
+                </span>
+              </motion.li>
+              <motion.li
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+              >
+                <span
+                  onClick={() => handleScrollTo("showcase")}
+                  className="block hover:text-green-500 transition duration-300"
+                >
+                  {t("showcase")}
+                </span>
+              </motion.li>
+            </>
+          )}
+
           <motion.li
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: 0.4 }}
           >
-            <Link href={"/contact"}>
+            <Link href={`/${locale}/contact`}>
               <p className="block hover:text-green-500 transition duration-300">
-                Hubungi Kami
+                {t("contact")}
               </p>
             </Link>
           </motion.li>
