@@ -6,9 +6,6 @@ import { motion } from "framer-motion";
 import { projects } from "../../data/projectData";
 import { ProjectData } from "@/app/[locale]/projects/[slug]/page";
 import { useTranslations } from "next-intl";
-import { useSelector } from "react-redux";
-import { RootState } from "@/lib/redux/store";
-import { useRouter } from "next/navigation";
 
 function ShowcaseSection2() {
   const t = useTranslations();
