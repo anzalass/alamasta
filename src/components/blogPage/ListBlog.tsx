@@ -99,17 +99,21 @@ const ListBlog: React.FC = () => {
   ];
 
   return (
-    <section className="py-8 mt-10 ">
-      <div className="flex rounded-2xl bg-secondary text-white h-72 border">
-        <div className="w-[70%] h-full flex  pl-8 justify-start items-center">
+    <section className="py-8 md:mt-10 mt-0 ">
+      <div className="flex rounded-2xl bg-secondary text-white lg:h-96 md:h-72 sm:h-60 h-48 border">
+        <div className="lg:w-[70%] md:w-[80%] w-[85%]  h-full flex  lg:pl-8 md:pl-4 pl-4 space-x-6 justify-start items-center">
           <div className="">
-            <h2 className="text-3xl leading-[50px] font-[700] w-[80%]">
+            <h2 className="lg:text-3xl md:text-2xl sm:text-xl text-sm lg:leading-[50px] md:leading-6 font-[700] lg:w-[80%] w-[95%]">
               Kembangkan Bisnis Melalui Transformasi Digital Bersama Alamasta
             </h2>
+            <h4 className="mt-4 lg:w-[80%] w-full lg:flex md:flex hidden">
+              Konsultasikan kebutuhan bisnismu untuk mendapatkan penawaran
+              website, mobile apps, ERP atau custom software lainnya.
+            </h4>
             <div className="mt-6 ">
               <Link
                 href={`/${locale}/contact`}
-                className="border-primary border px-5 py-2 rounded-md"
+                className="border-primary md:text-base text-xs  border md:px-5 px-3 py-2 rounded-md"
               >
                 Hubungi Kami
               </Link>
@@ -117,7 +121,7 @@ const ListBlog: React.FC = () => {
           </div>
         </div>
         <Image
-          className="w-[40%] rounded-r-xl h-full object-cover"
+          className="lg:w-[40%] justify-end w-[20%] rounded-r-xl h-full object-cover"
           width={500}
           height={500}
           src={"https://images.unsplash.com/photo-1582005450386-52b25f82d9bb"}
@@ -130,7 +134,7 @@ const ListBlog: React.FC = () => {
         </h1>
       </div>
 
-      <div className="grid mt-5 lg:grid-cols-4 grid-cols-2 md:grid-cols-3 justify-center gap-4">
+      <div className="grid mt-5 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 md:grid-cols-3 justify-center gap-4">
         {blogPosts.map((post, index) => (
           <BlogCard
             key={index}
