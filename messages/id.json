@@ -25,5 +25,30 @@
   "service3a": "UI/UX Design",
   "service3b": "Kami percaya bahwa interaksi pertama membentuk perjalanan pelanggan. Itulah sebabnya kami fokus menciptakan desain yang memukau secara visual dan intuitif yang menarik perhatian dan meninggalkan kesan abadi pada pandangan pertama. Ini bukan hanya tentang estetika; ini tentang merancang pengalaman yang berkesan dan menginspirasi kepercayaan.",
   "service4a": "Konsultan IT",
-  "service4b": "Layanan kami yang luas berawal dari pesatnya pertumbuhan teknologi dan persaingan bisnis dalam hal TI yang lebih baik. Dengan pemikiran ini, kami akan memberikan wawasan, strategi untuk memaksimalkan teknologi dan mengembangkan produk bagi klien sambil menyelesaikan krisis sebagai tim TI yang dialihdayakan"
+  "service4b": "Layanan kami yang luas berawal dari pesatnya pertumbuhan teknologi dan persaingan bisnis dalam hal TI yang lebih baik. Dengan pemikiran ini, kami akan memberikan wawasan, strategi untuk memaksimalkan teknologi dan mengembangkan produk bagi klien sambil menyelesaikan krisis sebagai tim TI yang dialihdayakan",
+
+  "expertise": "Ahli dalam memberikan solusi digital, kami adalah partner andal untuk semua kebutuhan teknologi Anda.",
+  "follow_us": "Ikuti Kami",
+  "social_media": {
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "twitter": "Twitter"
+  },
+  "serviceFoot": "Layanan",
+  "services": {
+    "website_development": "Website Development",
+    "website_design": "Website Design",
+    "website_maintenance": "Website Maintenance",
+    "mobile_app_development": "Mobile App Development"
+  },
+  "contactfoot": {
+    "email": "alamasta17@gmail.com",
+    "phone": "+6285179945123"
+  },
+  "copyright": "© 2024 Alamasta - Semua hak cipta dilindungi Undang-Undang",
+  "terms": {
+    "terms_of_service": "Ketentuan Umum",
+    "privacy_policy": "Privasi & Kerahasiaan",
+    "terms_and_conditions": "Syarat & Ketentuan"
+  }
 }

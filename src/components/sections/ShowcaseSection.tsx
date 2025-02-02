@@ -1,15 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import React from "react";
 import Card from "../common/Card";
 import { motion } from "framer-motion";
 import { projects } from "../../data/projectData";
-import { ArrowBigRight, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { ProjectData } from "@/app/[locale]/projects/[slug]/page";
 import { useTranslations } from "next-intl";
-
-const ITEMS_PER_PAGE = 4;
 
 function ShowcaseSection() {
   const t = useTranslations();
@@ -33,12 +30,11 @@ function ShowcaseSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              {projects.map((project: ProjectData, index: any) => (
+              {projects.map((project: ProjectData, index: number) => (
                 <Card
                   slug={project.slug}
                   key={index}
                   title={project.title}
-                  description={project.description}
                   imageSrc={project.img[0]}
                   category={project.category}
                   onCardClick={() => {}}

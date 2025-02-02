@@ -13,13 +13,10 @@ function Footer() {
             <span className="text-secondary">Ala</span>
             <span className="text-primary">masta.</span>
           </div>
-          <p className="italic text-accent">
-            "Ahli dalam memberikan solusi digital, kami adalah partner andal
-            untuk semua kebutuhan teknologi Anda."
-          </p>
+          <p className="italic text-accent">{t("expertise")}</p>
 
           <div>
-            <h2 className="text-2xl font-bold mt-10">Ikuti Kami</h2>
+            <h2 className="text-2xl font-bold mt-10">{t("follow_us")}</h2>
             <ul className="flex gap-2">
               <li className="">
                 <a href="#">
@@ -55,24 +52,24 @@ function Footer() {
           </div>
         </div>
         <div className="mt-6 lg:mt-0">
-          <h1 className="text-2xl font-bold mb-6">Layanan</h1>
+          <h1 className="text-2xl font-bold mb-6">{t("serviceFoot")}</h1>
           <ul className="space-y-2 text-accent">
             <li>
-              <a href="#">Website Development</a>
+              <a href="#">{t("services.website_development")}</a>
             </li>
             <li>
-              <a href="#">Website Design</a>
+              <a href="#">{t("services.website_design")}</a>
             </li>
             <li>
-              <a href="#">Website Maintenance</a>
+              <a href="#">{t("services.website_maintenance")}</a>
             </li>
             <li>
-              <a href="#">Mobile App Development</a>
+              <a href="#">{t("services.mobile_app_development")}</a>
             </li>
           </ul>
         </div>
         <div className="mt-6 lg:mt-0">
-          <h1 className="text-2xl font-bold mb-6">Hubungi Kami</h1>
+          <h1 className="text-2xl font-bold mb-6">{t("contact")}</h1>
           <ul className="space-y-2 text-accent">
             <li>
               <a href="#">alamasta17@gmail.com</a>
@@ -85,19 +82,16 @@ function Footer() {
       </div>
       <div className="bg-secondary text-white mt-10 py-2 px-10">
         <div className="mx-auto  flex flex-col lg:flex-row justify-between text-sm">
-          <p>© 2024 Alamasta - Semua hak cipta dilindungi Undang-Undang </p>
+          <p>© {t("copyright")} </p>
           <ul className="flex-col flex md:flex gap-4 mt-4 lg:mt-0">
             <li>
-              <a href="#">Ketentuan Umum</a>
+              <a href="#">{t("terms.terms_of_service")}</a>
             </li>
             <li>
-              <a href="#">Privasi & Kerahasiaan</a>
+              <a href="#">{t("terms.privacy_policy")}</a>
             </li>
             <li>
-              <a href="#">Syarat & Ketentuan</a>
-            </li>
-            <li>
-              <a href="#">Terms of Service</a>
+              <a href="#">{t("terms.terms_and_conditions")}</a>
             </li>
           </ul>
         </div>

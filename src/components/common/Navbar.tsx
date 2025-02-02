@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, ReactEventHandler } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
@@ -7,12 +7,7 @@ import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { setLocale } from "@/lib/redux/slices/localeSlice";
-
-interface Navigation {
-  home: string;
-  service: string;
-  showcase: string;
-}
+import { RootState } from "@/lib/redux/store";
 
 function Navbar() {
   const t = useTranslations();
@@ -20,7 +15,7 @@ function Navbar() {
   const path = usePathname();
   const pathArray = path.split("/");
   const dispatch = useDispatch();
-  const locale = useSelector((state: any) => state.locale.language);
+  const locale = useSelector((state: RootState) => state.locale.language);
 
   const [scrollToId, setScrollToId] = useState<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);

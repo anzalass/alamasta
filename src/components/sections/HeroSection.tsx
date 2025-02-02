@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import Particlee from "../common/Particle";
 import { ArrowDown } from "lucide-react";
-import { useTranslations } from "next-intl";
 interface HeroSectionProps {
   title: string;
   desc: string;

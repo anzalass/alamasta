@@ -7,7 +7,6 @@ import Link from "next/link";
 interface CardProps {
   title: string;
   slug: string;
-  description: string;
   imageSrc?: string;
   category?: string;
   onCardClick?: () => void;
@@ -15,7 +14,6 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({
   title,
-  description,
   slug,
   imageSrc,
   category,
@@ -42,7 +40,6 @@ const Card: React.FC<CardProps> = ({
 
         <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-secondary to-transparent">
           <h2 className="text-xl font-bold text-white">{title}</h2>
-          {/* <p className="text-gray-200 mt-2">{description}</p> */}
           <p className="text-gray-200 mt-2">{category}</p>
         </div>
       </div>

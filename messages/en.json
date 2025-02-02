@@ -28,5 +28,31 @@
   "service3b": "We believe that first impressions shape the customer journey. That’s why we focus on creating visually stunning and intuitive designs that capture attention and leave a lasting impression on first glance. It’s not just about aesthetics; it’s about designing experiences that are memorable and inspire trust.",
 
   "service4a": "IT Consulting",
-  "service4b": "Our comprehensive services stem from the rapid growth of technology and business competition for better IT solutions. With this in mind, we will provide insights, strategies to maximize technology, and develop products for clients while resolving crises as an outsourced IT team."
+  "service4b": "Our comprehensive services stem from the rapid growth of technology and business competition for better IT solutions. With this in mind, we will provide insights, strategies to maximize technology, and develop products for clients while resolving crises as an outsourced IT team.",
+
+  "expertise": "Experts in providing digital solutions, we are a reliable partner for all your technology needs.",
+  "follow_us": "Follow Us",
+  "social_media": {
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "twitter": "Twitter"
+  },
+  "serviceFoot": "Services",
+
+  "services": {
+    "website_development": "Website Development",
+    "website_design": "Website Design",
+    "website_maintenance": "Website Maintenance",
+    "mobile_app_development": "Mobile App Development"
+  },
+  "contactfoot": {
+    "email": "alamasta17@gmail.com",
+    "phone": "+6285179945123"
+  },
+  "copyright": "© 2024 Alamasta - All rights reserved under the law",
+  "terms": {
+    "terms_of_service": "Terms of Service",
+    "privacy_policy": "Privacy & Confidentiality",
+    "terms_and_conditions": "Terms & Conditions"
+  }
 }
