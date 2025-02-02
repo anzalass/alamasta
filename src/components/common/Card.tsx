@@ -3,6 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/redux/store";
 
 interface CardProps {
   title: string;
@@ -19,8 +21,9 @@ const Card: React.FC<CardProps> = ({
   category,
   onCardClick,
 }) => {
+  const locale = useSelector((state: RootState) => state.locale.language);
   return (
-    <Link href={`/projects/${slug}`}>
+    <Link href={`/${locale}/projects/${slug}`}>
       <div
         onClick={onCardClick}
         className="relative bg-white p-4 shadow-md rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition duration-300 cursor-pointer"

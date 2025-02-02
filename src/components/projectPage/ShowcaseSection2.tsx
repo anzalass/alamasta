@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
 import { useRouter } from "next/navigation";
 
-function ShowcaseSection() {
+function ShowcaseSection2() {
   const t = useTranslations();
   const router = useRouter();
   const locale = useSelector((state: RootState) => state.locale.language);
@@ -30,7 +30,7 @@ function ShowcaseSection() {
           <div className="md:flex sm:flex-col gap-x-8 sm:gap-y-4 justify-between"></div>
           <div className="flex flex-col">
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 "
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -45,13 +45,6 @@ function ShowcaseSection() {
                   onCardClick={() => {}}
                 />
               ))}
-              <div
-                onClick={() => router.push(`/${locale}/projects`)}
-                className="relative bg-secondary text-white p-4 shadow-md rounded-lg overflow-hidden border justify-center items-center flex border-gray-200 hover:shadow-lg transition duration-300 cursor-pointer"
-              >
-                <p className="text-xl">{t("loadmore")}</p>
-                <ArrowRight />
-              </div>
             </motion.div>
           </div>
         </div>
@@ -60,4 +53,4 @@ function ShowcaseSection() {
   );
 }
 
-export default ShowcaseSection;
+export default ShowcaseSection2;

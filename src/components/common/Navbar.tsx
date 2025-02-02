@@ -73,10 +73,10 @@ function Navbar() {
       <div className="w-11/12 mx-auto justify-between gap-5 flex items-center py-5 ">
         {/* Logo */}
         <div className=" flex items-center space-x-11">
-          <div className="text-4xl font-bold  mr-auto">
+          <Link href={`/${locale}`} className="text-4xl font-bold  mr-auto">
             <span className="text-secondary">Ala</span>
             <span className="text-primary">masta.</span>
-          </div>
+          </Link>
 
           <nav className="space-x-6  text-sm xl:text-base  hidden md:flex">
             <Link
@@ -131,7 +131,7 @@ function Navbar() {
                   <li>
                     <span
                       onClick={() => handleChangeLocale("en")}
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      className="block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       English
                     </span>
@@ -139,7 +139,7 @@ function Navbar() {
                   <li>
                     <span
                       onClick={() => handleChangeLocale("id")}
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      className="block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Indonesia
                     </span>
@@ -253,7 +253,7 @@ function Navbar() {
                   <li>
                     <span
                       onClick={() => handleChangeLocale("en")}
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      className="block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       English
                     </span>
@@ -261,7 +261,7 @@ function Navbar() {
                   <li>
                     <span
                       onClick={() => handleChangeLocale("id")}
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      className="block cursor-pointer px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       Indonesia
                     </span>

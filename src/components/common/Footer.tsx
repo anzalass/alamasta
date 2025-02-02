@@ -7,7 +7,7 @@ function Footer() {
 
   return (
     <footer className="bg-white  text-gray-600 pt-10 border-t">
-      <div className=" flex flex-col md:flex-row justify-between mx-auto px-10 ">
+      <div className=" flex flex-col md:flex-row justify-between mx-auto lg:px-10 px-5 ">
         <div className="flex flex-col w-full md:w-1/3">
           <div className="text-4xl font-bold ">
             <span className="text-secondary">Ala</span>
@@ -19,32 +19,35 @@ function Footer() {
             <h2 className="text-2xl font-bold mt-10">{t("follow_us")}</h2>
             <ul className="flex gap-2">
               <li className="">
-                <a href="#">
+                <a href="https://www.instagram.com/alamasta17/">
                   <Image
                     src="/icons/instagram.png"
                     alt="Instagram"
-                    width={45}
-                    height={45}
+                    width={100}
+                    height={100}
+                    className="w-10 h-10"
                   />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://www.tiktok.com/@alamasta17">
                   <Image
                     src="/icons/tiktok.png"
                     alt="Facebook"
-                    width={45}
-                    height={45}
+                    width={100}
+                    height={100}
+                    className="w-10 h-10"
                   />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="https://x.com/alamasta17">
                   <Image
                     src="/icons/twitter.png"
                     alt="Twitter"
-                    width={45}
-                    height={45}
+                    width={100}
+                    height={100}
+                    className="w-10 h-10"
                   />
                 </a>
               </li>
@@ -80,12 +83,12 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div className="bg-secondary text-white mt-10 py-2 px-10">
+      <div className="bg-secondary text-white mt-10 py-2 lg:px-10 px-5">
         <div className="mx-auto  flex flex-col lg:flex-row justify-between text-sm">
           <p>© {t("copyright")} </p>
           <ul className="flex-col flex md:flex gap-4 mt-4 lg:mt-0">
             <li>
-              <a href="#">{t("terms.terms_of_service")}</a>
+              <a href="">{t("terms.terms_of_service")}</a>
             </li>
             <li>
               <a href="#">{t("terms.privacy_policy")}</a>
