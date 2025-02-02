@@ -85,6 +85,12 @@ function Navbar() {
             >
               {t("home")}
             </Link>
+            <Link
+              href={`/${locale}/blog`}
+              className="hover:text-green-500 transition duration-300"
+            >
+              Artikel
+            </Link>
             {pathArray?.length <= 2 && (
               <>
                 <div

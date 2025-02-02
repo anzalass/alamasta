@@ -1,7 +1,7 @@
 {
   "home": "Home",
   "service": "Service",
-  "showcase": "Showcase",
+  "showcase": "Case Study",
   "contact": "Contact Us",
   "bahasa": "Language",
   "jumbotron": "Digital Solutions, The Future of Your Business",
@@ -10,9 +10,9 @@
   "aboutUs2": "Alamasta is a professional service provider in the field of digital technology, such as software development for mobile devices and websites. With a quality and efficiency-driven approach, we are here to help individuals and businesses solve technology challenges with innovative and customized solutions.",
   "servicesTitle1": "Our",
   "servicesTitle2": "Services",
-  "showcase1": "Showcase",
-  "showcase2": "Projects",
-  "loadmore": "Load More",
+  "showcase1": "Case",
+  "showcase2": "Study",
+  "loadmore": "Show More",
   "testiTitle": "What Client Say ?",
 
   "contact_title": "Contact Alamasta IT Consulting",

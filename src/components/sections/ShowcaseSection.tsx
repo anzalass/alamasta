@@ -50,7 +50,7 @@ function ShowcaseSection() {
                 className="relative bg-secondary text-white p-4 shadow-md rounded-lg overflow-hidden border justify-center items-center flex border-gray-200 hover:shadow-lg transition duration-300 cursor-pointer"
               >
                 <p className="text-xl">{t("loadmore")}</p>
-                <ArrowRight />
+                <ArrowRight className="ml-3" />
               </div>
             </motion.div>
           </div>

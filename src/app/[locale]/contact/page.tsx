@@ -10,12 +10,12 @@ export default function ContactPage() {
           <p className="text-3xl font-bold">{t("contact_title")}</p>
           <p className="mt-10 leading-7 ">{t("contact_message")}</p>
         </div>
-        <div className="space-y-10 lg:w-[60%] w-full mx-auto text-secondary">
+        <div className="space-y-10 lg:w-[60%] w-11/12 lg:mx-auto text-secondary">
           <div className="flex flex-col">
             <p>Phone / WhatsApp</p>
             <Link
               href={"https://wa.me/6285179945123"}
-              className="text-3xl mt-3 font-[700]"
+              className="md:text-3xl text-xl mt-3 font-[700]"
             >
               +62 85179945123
             </Link>
@@ -23,7 +23,9 @@ export default function ContactPage() {
           </div>
           <div className="">
             <p>Email</p>
-            <p className="text-3xl mt-3 font-[700]">alamasta17@gmail.com</p>
+            <p className="md:text-3xl text-xl mt-3 font-[700]">
+              alamasta17@gmail.com
+            </p>
             <hr />
           </div>
         </div>
