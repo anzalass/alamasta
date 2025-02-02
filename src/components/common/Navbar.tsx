@@ -1,20 +1,51 @@
-'use client';
+"use client";
+import React, { useState, useEffect, ReactEventHandler } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { setLocale } from "@/lib/redux/slices/localeSlice";
 
-import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+interface Navigation {
+  home: string;
+  service: string;
+  showcase: string;
+}
 
 function Navbar() {
+  const t = useTranslations();
+  const router = useRouter();
+  const path = usePathname();
+  const pathArray = path.split("/");
+  const dispatch = useDispatch();
+  const locale = useSelector((state: any) => state.locale.language);
+
+  const [scrollToId, setScrollToId] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+
   const [lastScrollY, setLastScrollY] = useState(0);
+  const handleScrollTo = (id: string) => {
+    setScrollToId(id);
+  };
+
+  useEffect(() => {
+    if (scrollToId) {
+      const element = document.getElementById(scrollToId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [scrollToId]); // Depend on scrollToId to trigger when set
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+      if (currentScrollY > lastScrollY && currentScrollY > 10) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -23,52 +54,107 @@ function Navbar() {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
+
+  const handleChangeLocale = (locale: string) => {
+    pathArray[1] = locale;
+    router.push(pathArray.join("/"));
+    dispatch(setLocale(locale));
+    setIsOpen(false);
+  };
 
   return (
     <motion.header
       initial={{ y: 0 }}
-      animate={{ y: isVisible ? 0 : '-100%' }}
+      animate={{ y: isVisible ? 0 : "-100%" }}
       transition={{ duration: 0.3 }}
-      className="bg-white font-roboto shadow-sm fixed w-screen top-0 z-50"
+      className=" fixed  backdrop-blur-3xl w-screen top-0 z-50"
     >
-      <div className="container mx-auto flex items-center py-2 px-6">
+      <div className="w-11/12 mx-auto justify-between gap-5 flex items-center py-5 ">
         {/* Logo */}
-        <div className="text-4xl font-bold font-poppins mr-auto">
-          <span className="text-secondary">nugas</span>
-          <span className="text-primary">king.</span>
+        <div className=" flex items-center space-x-11">
+          <div className="text-4xl font-bold  mr-auto">
+            <span className="text-secondary">Ala</span>
+            <span className="text-primary">masta.</span>
+          </div>
+
+          <nav className="space-x-6  text-sm xl:text-base  hidden md:flex">
+            <Link
+              href="/"
+              className="hover:text-green-500 transition duration-300"
+            >
+              {t("home")}
+            </Link>
+            {pathArray?.length <= 2 && (
+              <>
+                <div
+                  onClick={() => handleScrollTo("services")}
+                  className="hover:text-green-500 cursor-pointer transition duration-300"
+                >
+                  {t("service")}
+                </div>
+
+                <div
+                  onClick={() => handleScrollTo("showcase")}
+                  className="hover:text-green-500 cursor-pointer transition duration-300"
+                >
+                  {t("showcase")}
+                </div>
+              </>
+            )}
+          </nav>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 text-secondary">
-          <Link href="/" className="hover:text-green-500 transition duration-300">Home</Link>
-          <Link href="/news" className="hover:text-green-500 transition duration-300">Berita</Link>
-          <Link href="/hto" className="hover:text-green-500 transition duration-300">How to Order</Link>
-          <Link href="/tracking" className="hover:text-green-500 transition duration-300">Tracking</Link>
-          <Link href="/promo" className="hover:text-green-500 transition duration-300">Promo</Link>
+        <nav className="hidden  text-xs xl:text-base  md:flex space-x-6 text-secondary">
+          <Link
+            href={`/${locale}/contact`}
+            className="text-white  bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-3 lg:px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            {t("contact")}
+          </Link>
+
+          <div className="relative">
+            {/* Tombol Dropdown */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-white bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-3 lg:px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              type="button"
+            >
+              {t("bahasa")} <ChevronDown className="ml-3" />
+            </button>
+
+            {/* Menu Dropdown */}
+            {isOpen && (
+              <div className="absolute left-0 mt-2 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                  <li>
+                    <span
+                      onClick={() => handleChangeLocale("en")}
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      English
+                    </span>
+                  </li>
+                  <li>
+                    <span
+                      onClick={() => handleChangeLocale("id")}
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Indonesia
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
         </nav>
 
-        {/* Order Button */}
-        <a
-          href="#"
-          className="hidden md:flex bg-green-500 text-white font-bold px-4 py-2 rounded-xl items-center hover:bg-green-600 ml-6 transition duration-300"
-        >
-          Order
-          <Image
-            src="/icons/proicons_arrow-enter.png"
-            alt="Arrow Right"
-            width={20}
-            height={20}
-            className="ml-2"
-          />
-        </a>
-
-        {/* Hamburger Menu */}
         <button
           className="md:hidden text-gray-700 focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -104,7 +190,7 @@ function Navbar() {
         initial={{ height: 0 }}
         animate={{ height: isMenuOpen ? "auto" : 0 }}
         transition={{ duration: 0.3 }}
-        className="overflow-hidden md:hidden bg-white shadow-lg"
+        className="overflow-hidden md:hidden  bg-white shadow-lg"
       >
         <ul className="space-y-4 text-center text-secondary py-4">
           <motion.li
@@ -112,47 +198,46 @@ function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
           >
-            <a href="#" className="block hover:text-green-500 transition duration-300">Home</a>
+            <Link href={"/"}>
+              <p className="block hover:text-green-500 transition duration-300">
+                Beranda
+              </p>
+            </Link>
           </motion.li>
           <motion.li
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: 0.2 }}
           >
-            <a href="#" className="block hover:text-green-500 transition duration-300">Berita</a>
+            <a
+              href="#"
+              className="block hover:text-green-500 transition duration-300"
+            >
+              Layanan
+            </a>
           </motion.li>
           <motion.li
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: 0.3 }}
           >
-            <a href="#" className="block hover:text-green-500 transition duration-300">How to Order</a>
+            <a
+              href="#"
+              className="block hover:text-green-500 transition duration-300"
+            >
+              Portofolio{" "}
+            </a>
           </motion.li>
           <motion.li
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: 0.4 }}
           >
-            <a href="#" className="block hover:text-green-500 transition duration-300">Tracking</a>
-          </motion.li>
-          <motion.li
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.5 }}
-          >
-            <a href="#" className="block hover:text-green-500 transition duration-300">Promo</a>
-          </motion.li>
-          <motion.li
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: 0.6 }}
-          >
-            <a
-              href="#"
-              className="bg-green-500 text-white font-bold px-4 py-2 rounded-xl inline-block hover:bg-green-600 transition duration-300"
-            >
-              Order
-            </a>
+            <Link href={"/contact"}>
+              <p className="block hover:text-green-500 transition duration-300">
+                Hubungi Kami
+              </p>
+            </Link>
           </motion.li>
         </ul>
       </motion.nav>

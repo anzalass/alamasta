@@ -1,42 +1,43 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const reviews = [
   {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
+    name: "Budi Santoso",
+    username: "@budisantoso",
+    body: "Saya belum pernah melihat sesuatu seperti ini sebelumnya. Sangat luar biasa dan menarik!",
     img: "/images/travel selfie-bro 1.png",
   },
   {
-    name: "Jill",
-    username: "@jill",
-    body: "I don't know what to say. I'm speechless. This is amazing.",
+    name: "Siti Rahma",
+    username: "@sitirahma",
+    body: "Benar-benar di luar ekspektasi saya. Desainnya keren dan sangat mudah digunakan!",
     img: "/images/travel selfie-bro 1.png",
   },
   {
-    name: "John",
-    username: "@john",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Andi Pratama",
+    username: "@andipratama",
+    body: "Saya sangat terkesan dengan tampilannya. Semua terlihat profesional dan rapi.",
     img: "/images/travel selfie-bro 1.png",
   },
   {
-    name: "Jane",
-    username: "@jane",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Rina Lestari",
+    username: "@rinalestari",
+    body: "Luar biasa! Saya sangat suka pengalaman pengguna yang diberikan. Sangat intuitif!",
     img: "/images/travel selfie-bro 1.png",
   },
   {
-    name: "Jenny",
-    username: "@jenny",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Dewi Anggraini",
+    username: "@dewianggraini",
+    body: "Sederhana tapi sangat efektif. Saya bisa dengan mudah menemukan yang saya butuhkan.",
     img: "/images/travel selfie-bro 1.png",
   },
   {
-    name: "James",
-    username: "@james",
-    body: "I'm at a loss for words. This is amazing. I love it.",
+    name: "Joko Setiawan",
+    username: "@jokosetiawan",
+    body: "Hasil yang sangat mengesankan! Saya pasti akan merekomendasikannya kepada teman-teman.",
     img: "/images/travel selfie-bro 1.png",
   },
 ];
@@ -62,11 +63,17 @@ const ReviewCard = ({
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <Image className="rounded-full bg-primary" width="32" height="32" alt="" src={img} />
+        <Image
+          className="rounded-full bg-primary"
+          width="32"
+          height="32"
+          alt=""
+          src={img}
+        />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -80,15 +87,17 @@ const ReviewCard = ({
 };
 
 export default function TestimoniSection() {
+  const t = useTranslations();
   return (
-    <section className="h-auto py-5">
+    <section className="h-auto py-16  bg-white">
       <div className="px-4 sm:px-6 lg:px-10 text-center">
-        <h1 className="text-2xl font-bold text-secondary">Apa kata client kami?</h1>
-        <p className="text-accent mt-4 lg:mt-6 text-sm sm:text-base lg:text-lg">
-          Di nugasking, kepuasan pelanggan adalah prioritas utama kami. Kami bangga telah bekerja dengan berbagai individu dan bisnis, memberikan solusi teknologi yang tepat dan efektif. Di sini, Anda akan mendengar langsung dari mereka tentang bagaimana kami membantu mewujudkan ide dan menyelesaikan tantangan digital mereka. Setiap testimoni mencerminkan komitmen kami untuk selalu memberikan hasil yang luar biasa dan membangun hubungan jangka panjang yang saling menguntungkan.
-        </p>
+        <div className="text-center w-full flex justify-center items-center ">
+          <h4 className="text-center py-4 text-2xl sm:text-4xl border-b-2 border-secondary w-fit">
+            {t("testiTitle")}
+          </h4>
+        </div>{" "}
       </div>
-      <div className="relative flex w-full flex-col items-center justify-center pt-10 overflow-hidden rounded-lg">
+      <div className="relative flex w-full flex-col items-center justify-center py-20 overflow-hidden rounded-lg">
         <Marquee pauseOnHover className="[--duration:20s]">
           {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />
