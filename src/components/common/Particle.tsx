@@ -1,9 +1,10 @@
+/* eslint-disable */
+
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 
 export default function Particlee() {
-  /* eslint-disable no-unused-vars */
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -13,7 +14,6 @@ export default function Particlee() {
       setInit(true);
     });
   }, []);
-  /* eslint-enable no-unused-vars */
 
   return (
     <Particles
