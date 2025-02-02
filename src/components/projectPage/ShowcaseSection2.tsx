@@ -4,7 +4,6 @@ import React from "react";
 import Card from "../common/Card";
 import { motion } from "framer-motion";
 import { projects } from "../../data/projectData";
-import { ArrowRight } from "lucide-react";
 import { ProjectData } from "@/app/[locale]/projects/[slug]/page";
 import { useTranslations } from "next-intl";
 import { useSelector } from "react-redux";
@@ -13,8 +12,6 @@ import { useRouter } from "next/navigation";
 
 function ShowcaseSection2() {
   const t = useTranslations();
-  const router = useRouter();
-  const locale = useSelector((state: RootState) => state.locale.language);
   return (
     <section id="showcase" className="w-11/12  z-50 3xl:max-w-7xl mx-auto ">
       <div className="">
