@@ -139,7 +139,6 @@ const ListBlog: React.FC = () => {
           <BlogCard
             key={index}
             title={post.title}
-            excerpt={post.excerpt}
             imageUrl={post.imageUrl}
             date={post.date}
           />

@@ -2,17 +2,11 @@ import Image from "next/image";
 
 interface BlogCardProps {
   title: string;
-  excerpt: string;
   imageUrl: string;
   date: string;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({
-  title,
-  excerpt,
-  imageUrl,
-  date,
-}) => {
+const BlogCard: React.FC<BlogCardProps> = ({ title, imageUrl, date }) => {
   return (
     <div className="w-full   rounded-lg overflow-hidden  bg-white">
       <Image
