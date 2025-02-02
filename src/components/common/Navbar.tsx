@@ -239,6 +239,37 @@ function Navbar() {
               </p>
             </Link>
           </motion.li>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-3 lg:px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
+          >
+            {t("bahasa")} <ChevronDown className="ml-3" />
+          </button>
+          {isOpen && (
+            <div className="flex justify-center">
+              <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700">
+                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                  <li>
+                    <span
+                      onClick={() => handleChangeLocale("en")}
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      English
+                    </span>
+                  </li>
+                  <li>
+                    <span
+                      onClick={() => handleChangeLocale("id")}
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Indonesia
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
         </ul>
       </motion.nav>
     </motion.header>
